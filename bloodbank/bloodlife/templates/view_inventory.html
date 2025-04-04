@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Inventory</title>
+    <script>
+        function loadInventory() {
+            fetch('/bloodlife/view_inventory/')  // Correct URL
+                .then(response => response.json())
+                .then(data => {
+                    let tableBody = document.getElementById('inventory-data');
+                    tableBody.innerHTML = "";
+                    data.forEach(item => {
+                        let row = `<tr>
+                            <td>${item.blood_group}</td>
+                            <td>${item.units_available}</td>
+                            <td>${item.last_updated}</td>
+                        </tr>`;
+                        tableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error loading inventory:', error));
+        }
+        window.onload = loadInventory;
+    </script>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4;">
+
+    <h2 style="color: #333;">Blood Inventory</h2>
+
+    <table border="1" style="width: 80%; margin: auto; background: white; border-collapse: collapse;">
+        <thead>
+            <tr style="background: #28a745; color: white;">
+                <th>Blood Group</th>
+                <th>Units Available</th>
+                <th>Last Updated</th>
+            </tr>
+        </thead>
+        <tbody id="inventory-data"></tbody>
+    </table>
+
+</body>
+</html>

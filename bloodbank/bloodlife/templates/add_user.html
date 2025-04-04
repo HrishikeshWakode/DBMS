@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add User</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4;">
+
+    <h2 style="color: #333;">Register a New User</h2>
+
+    <form action="/add_user/" method="post" style="background: white; padding: 20px; max-width: 400px; margin: auto; border-radius: 5px;">
+        <input type="text" name="name" placeholder="Full Name" required style="width: 90%; padding: 10px; margin: 5px;"><br>
+        <input type="email" name="email" placeholder="Email" required style="width: 90%; padding: 10px; margin: 5px;"><br>
+        <input type="text" name="phone" placeholder="Phone Number" required style="width: 90%; padding: 10px; margin: 5px;"><br>
+        <input type="password" name="password" placeholder="Password" required style="width: 90%; padding: 10px; margin: 5px;"><br>
+        <select name="role" required style="width: 95%; padding: 10px; margin: 5px;">
+            <option value="blood bank staff">Blood Bank Staff</option>
+            <option value="hospital staff">Hospital Staff</option>
+            <option value="admin">Admin</option>
+        </select><br>
+        <input type="text" name="hospital_id" placeholder="Hospital ID (if applicable)" style="width: 90%; padding: 10px; margin: 5px;"><br>
+        <button type="submit" style="background: #007bff; color: white; padding: 10px; width: 100%; border: none; cursor: pointer;">Add User</button>
+    </form>
+
+</body>
+</html>

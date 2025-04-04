@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hospital</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4;">
+
+    <h2 style="color: #333;">Add a New Hospital</h2>
+
+    <form action="/bloodlife/add_hospital/" method="post" style="background: white; padding: 20px; max-width: 400px; margin: auto; border-radius: 5px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+        {% csrf_token %}
+        
+        <input type="text" name="name" placeholder="Hospital Name" required 
+               style="width: 90%; padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 3px;"><br>
+
+        <input type="text" name="location" placeholder="Location" required 
+               style="width: 90%; padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 3px;"><br>
+
+        <input type="text" name="contact_number" placeholder="Contact Number" required 
+               style="width: 90%; padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 3px;"><br>
+
+        <input type="email" name="email" placeholder="Email Address" required 
+               style="width: 90%; padding: 10px; margin: 5px; border: 1px solid #ccc; border-radius: 3px;"><br>
+
+        <button type="submit" style="background-color: #28a745; color: white; padding: 10px; width: 95%; border: none; border-radius: 3px; cursor: pointer;">Add Hospital</button>
+    </form>
+
+</body>
+</html>

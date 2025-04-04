@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Management</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        a { text-decoration: none; display: block; margin: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Welcome to Blood Bank Management</h2>
+    <a href="{% url 'add_hospital' %}">Add Hospital</a>
+    <a href="{% url 'add_user' %}">Add User</a>
+    <a href="{% url 'add_inventory' %}">Add Inventory</a>
+</body>
+</html>
