@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,5 +27,478 @@
         <button type="submit" style="background-color: #28a745; color: white; padding: 10px; width: 95%; border: none; border-radius: 3px; cursor: pointer;">Add Hospital</button>
     </form>
 
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hospital | Blood Bank Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            background: linear-gradient(120deg, #f5f7fa 0%, #e4e8ec 100%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 500px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            color: #28a745;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        h2 {
+            color: #343a40;
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            font-size: 16px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            padding: 35px;
+            margin-bottom: 20px;
+            border-top: 5px solid #28a745;
+        }
+        
+        .form-group {
+            margin-bottom: 22px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #343a40;
+            font-size: 15px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 16px;
+            color: #495057;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: #28a745;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.25);
+            outline: none;
+        }
+        
+        .form-group .hint {
+            font-size: 13px;
+            color: #6c757d;
+            margin-top: 6px;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .required::after {
+            content: "*";
+            color: #dc3545;
+            margin-left: 4px;
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .nav-link {
+            color: #28a745;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #218838;
+            text-decoration: underline;
+        }
+        
+        .hospital-icon {
+            margin-right: 10px;
+            color: #28a745;
+        }
+        
+        .form-header {
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #e9ecef;
+            text-align: center;
+        }
+        
+        .form-header h3 {
+            color: #28a745;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">🏥</span>
+                Blood Bank Management
+            </div>
+            <h2>Add a New Hospital</h2>
+            <p class="subtitle">Register a hospital in the blood bank network</p>
+        </div>
+        
+        <div class="card">
+            <div class="form-header">
+                <h3>Hospital Registration Form</h3>
+            </div>
+            
+            <form action="/bloodlife/add_hospital/" method="post">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="name" class="required">Hospital Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter full hospital name" required>
+                    <p class="hint">Enter the official legal name of the hospital</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location" class="required">Location</label>
+                    <input type="text" id="location" name="location" placeholder="Full address" required>
+                    <p class="hint">Include city, state and postal code</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact_number" class="required">Contact Number</label>
+                    <input type="text" id="contact_number" name="contact_number" placeholder="Phone number with area code" required>
+                    <p class="hint">This will be used for emergency blood requests</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Official hospital email" required>
+                    <p class="hint">For notifications and account management</p>
+                </div>
+                
+                <button type="submit" class="btn">Register Hospital</button>
+            </form>
+        </div>
+        
+        <div class="navigation">
+            <a href="/" class="nav-link">Back to Home</a>
+            <a href="/bloodlife/hospitals/" class="nav-link">View All Hospitals</a>
+        </div>
+    </div>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hospital | Blood Bank Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            color: #dc3545;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        h2 {
+            color: #343a40;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .subtitle {
+            color: #6c757d;
+            font-size: 15px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #495057;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 15px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 15px;
+            color: #495057;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        input:focus {
+            border-color: #28a745;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+        }
+        
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s, transform 0.2s;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            background-color: #218838;
+            transform: translateY(-2px);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .form-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+        
+        .form-footer a {
+            color: #28a745;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .form-footer a:hover {
+            color: #218838;
+            text-decoration: underline;
+        }
+        
+        .required::after {
+            content: "*";
+            color: #dc3545;
+            margin-left: 4px;
+        }
+        
+        .help-text {
+            color: #6c757d;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        
+        .icon-input {
+            position: relative;
+        }
+        
+        .icon-input input {
+            padding-left: 40px;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 576px) {
+            .card {
+                padding: 20px;
+            }
+            
+            .form-footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">❤️</span>
+                Blood Bank Management
+            </div>
+            <h2>Add a New Hospital</h2>
+            <p class="subtitle">Register a hospital in the blood bank network</p>
+        </div>
+        
+        <div class="card">
+            <form action="/bloodlife/add_hospital/" method="post">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    <label for="name" class="required">Hospital Name</label>
+                    <div class="icon-input">
+                        <span class="input-icon">🏥</span>
+                        <input type="text" id="name" name="name" placeholder="Enter hospital name" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="location" class="required">Location</label>
+                    <div class="icon-input">
+                        <span class="input-icon">📍</span>
+                        <input type="text" id="location" name="location" placeholder="Enter full address" required>
+                    </div>
+                    <p class="help-text">Include city, state, and postal code</p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact_number" class="required">Contact Number</label>
+                    <div class="icon-input">
+                        <span class="input-icon">📞</span>
+                        <input type="text" id="contact_number" name="contact_number" placeholder="Enter contact number" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">Email Address</label>
+                    <div class="icon-input">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" id="email" name="email" placeholder="Enter hospital email" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Register Hospital</button>
+                
+                <div class="form-footer">
+                    <a href="/bloodlife/view_hospitals/">View All Hospitals</a>
+                    <a href="/">Back to Home</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
